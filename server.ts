@@ -22,9 +22,7 @@ async function startServer() {
     };
 
     const pathsToTry = [
-      path.join(process.cwd(), "email-config.json"),
-      path.join(__dirname, "email-config.json"),
-      path.join(__dirname, "../email-config.json")
+      path.join(process.cwd(), "email-config.json")
     ];
 
     let fallbackPath = "";
