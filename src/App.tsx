@@ -9,6 +9,7 @@ import { PERSONAL_BIO, PORTFOLIO_SKILLS, PORTFOLIO_CERTIFICATES, PORTFOLIO_LANGU
 import AlgoSandbox from './components/AlgoSandbox';
 import IctDiagnostics from './components/IctDiagnostics';
 import ContactHub from './components/ContactHub';
+import PhotoGallery from './components/PhotoGallery';
 
 export default function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -21,6 +22,7 @@ export default function App() {
   const navigationItems = [
     { name: 'About', href: '#about' },
     { name: 'Certificates', href: '#certificates' },
+    { name: 'Photos', href: '#gallery-section' },
     { name: 'Skills Network', href: '#skills' },
     { name: 'Algorithmic Lab', href: '#sandbox' },
     { name: 'ICT Diagnostic Desk', href: '#support' },
@@ -430,6 +432,27 @@ export default function App() {
               </div>
             ))}
           </div>
+
+        </div>
+      </section>
+
+      {/* Interactive Photo Gallery Section */}
+      <section id="gallery-section" className="py-20 select-none bg-slate-950 border-t border-slate-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span className="text-xs uppercase font-mono tracking-widest text-emerald-400 font-bold bg-emerald-500/10 px-4 py-1.5 rounded-full border border-emerald-500/20">
+              PORTRAIT ESSENTIALS
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-display font-black text-white tracking-tight mt-4">
+              Professional Portrait & Photo Gallery
+            </h2>
+            <p className="text-xs sm:text-sm text-slate-400 mt-2 leading-relaxed">
+              Explore professional portrait assets of Mugisha Robert. Highlighted styles demonstrate modern, executive-level layout presentation across multiple cities and technical events.
+            </p>
+          </div>
+
+          <PhotoGallery />
 
         </div>
       </section>
