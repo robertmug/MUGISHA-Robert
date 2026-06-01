@@ -75,7 +75,7 @@ export default function App() {
           <a href="#" className="flex items-center gap-2.5 group">
             <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-400 via-cyan-400 to-indigo-500 p-0.5 shadow-lg shadow-indigo-500/10 overflow-hidden">
               <img 
-                src="/src/assets/images/favicon_1780299437513.png" 
+                src="/images/favicon.png" 
                 alt="Mugisha Robert Logo" 
                 className="w-full h-full rounded-[10px] object-cover group-hover:scale-110 transition-transform"
                 referrerPolicy="no-referrer"
@@ -185,7 +185,7 @@ export default function App() {
                   <div className="space-y-4 my-6">
                     <div className="flex items-center gap-3">
                       <img 
-                        src="/src/assets/images/favicon_1780299437513.png" 
+                        src="/images/favicon.png" 
                         alt="Mugisha Robert Avatar" 
                         className="w-12 h-12 rounded-xl object-cover border border-slate-800 shadow-md"
                         referrerPolicy="no-referrer"

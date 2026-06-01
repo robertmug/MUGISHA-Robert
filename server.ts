@@ -3,6 +3,7 @@ import path from "path";
 import { createServer as createViteServer } from "vite";
 import nodemailer from "nodemailer";
 import dotenv from "dotenv";
+import fs from "fs";
 
 const dotenvResult = dotenv.config({ override: true });
 console.log("⚙️ Dotenv Load Result Error Status:", dotenvResult.error ? dotenvResult.error.message : "None");
@@ -13,6 +14,26 @@ async function startServer() {
   const PORT = 3000;
 
   app.use(express.json());
+
+  // Load email-config.json fallback for production hosting
+  try {
+    const fallbackPath = path.join(process.cwd(), "email-config.json");
+    if (fs.existsSync(fallbackPath)) {
+      const fallbackData = JSON.parse(fs.readFileSync(fallbackPath, "utf-8"));
+      if (!process.env.EMAIL_USER && fallbackData.EMAIL_USER) {
+        process.env.EMAIL_USER = fallbackData.EMAIL_USER;
+      }
+      if (!process.env.EMAIL_PASS && fallbackData.EMAIL_PASS) {
+        process.env.EMAIL_PASS = fallbackData.EMAIL_PASS;
+      }
+      if (!process.env.RECEIVER_EMAIL && fallbackData.RECEIVER_EMAIL) {
+        process.env.RECEIVER_EMAIL = fallbackData.RECEIVER_EMAIL;
+      }
+      console.log("🔒 Loaded email-config.json fallback into process.env");
+    }
+  } catch (error) {
+    console.error("⚠️ Failed to load email-config.json fallback:", error);
+  }
 
   const cleanEnvValue = (val: string | undefined): string => {
     if (!val) return "";

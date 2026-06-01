@@ -20,7 +20,7 @@ interface PhotoItem {
 const PORTFOLIO_PHOTOS: PhotoItem[] = [
   {
     id: 'photo-1',
-    src: '/src/assets/images/ChatGPT Image Jun 1, 2026, 04_30_56 AM.png',
+    src: '/images/executive_look.png',
     title: 'The Modern Executive Look',
     category: 'executive',
     description: 'Polished corporate style walking gracefully in an ultra-modern city hub during blue hour.',
@@ -30,7 +30,7 @@ const PORTFOLIO_PHOTOS: PhotoItem[] = [
   },
   {
     id: 'photo-2',
-    src: '/src/assets/images/ChatGPT Image Jun 1, 2026, 04_31_16 AM.png',
+    src: '/images/precision_focus.png',
     title: 'Precision & Focus',
     category: 'smart-formal',
     description: 'Sophisticated pose displaying crisp style lines, white shirt highlights, and absolute composure.',
@@ -40,7 +40,7 @@ const PORTFOLIO_PHOTOS: PhotoItem[] = [
   },
   {
     id: 'photo-3',
-    src: '/src/assets/images/ChatGPT Image Jun 1, 2026, 04_31_24 AM.png',
+    src: '/images/leadership_vision.png',
     title: 'Leadership & Vision',
     category: 'smart-formal',
     description: 'Broad-shouldered tailoring against ambient urban city architectural structures.',
@@ -50,7 +50,7 @@ const PORTFOLIO_PHOTOS: PhotoItem[] = [
   },
   {
     id: 'photo-4',
-    src: '/src/assets/images/ChatGPT Image Jun 1, 2026, 04_31_31 AM.png',
+    src: '/images/smart_athletic_formal.png',
     title: 'Smart Athletic Formal',
     category: 'casual',
     description: 'Modern styling combining crisp tuxedo jacket with immaculate white athletic footwear.',
@@ -60,7 +60,7 @@ const PORTFOLIO_PHOTOS: PhotoItem[] = [
   },
   {
     id: 'photo-5',
-    src: '/src/assets/images/ChatGPT Image Jun 1, 2026, 04_31_39 AM.png',
+    src: '/images/metropolitan_journey.png',
     title: 'Metropolitan Journey',
     category: 'city',
     description: 'Strolling confidently near a premier white sedan, framed by grand avenue palm trees.',
@@ -70,7 +70,7 @@ const PORTFOLIO_PHOTOS: PhotoItem[] = [
   },
   {
     id: 'photo-6',
-    src: '/src/assets/images/ChatGPT Image Jun 1, 2026, 04_52_54 AM.png',
+    src: '/images/sunset_skyline.png',
     title: 'Sunset Skyline Profile',
     category: 'executive',
     description: 'Striking portrait emphasizing sleek black bowtie outline, clean tailoring, and city nightscapes.',
