@@ -307,28 +307,6 @@ export default function ContactHub() {
         </div>
 
         <form onSubmit={verificationStep === 'verified' ? handleSubmitMessage : (e) => e.preventDefault()} className="space-y-4 font-sans">
-          
-          {/* Permanent Environment Variable Alert */}
-          {smtpStatus.status !== 'ready' && (
-            <div className="bg-amber-500/10 border border-amber-500/35 p-4 rounded-2xl space-y-2 text-xs text-amber-200">
-              <div className="flex items-center gap-2 text-amber-400 font-bold uppercase font-mono tracking-wider">
-                <AlertTriangle className="w-4 h-4 shrink-0" />
-                Deployment Sync Notice
-              </div>
-              <p className="leading-relaxed font-light text-[11px] text-slate-300">
-                Editing <span className="font-mono text-amber-300">metadata.json</span>, titles, or code triggers a **fresh production container build**. Because your <span className="font-mono text-amber-300">.env</span> file is ignored by <span className="font-mono text-amber-300">.gitignore</span> (for security!), any temporary local file is removed during redeployment.
-              </p>
-              <div className="bg-slate-950/70 p-2.5 rounded-xl border border-amber-500/10 space-y-1 font-mono text-[10px]">
-                <div className="text-amber-450 font-bold uppercase tracking-wide">💡 Permanent Fix via AI Studio Settings:</div>
-                <ol className="list-decimal list-inside space-y-1 text-slate-400">
-                  <li>Open the <strong className="text-white">Settings</strong> panel in the Google AI Studio UI.</li>
-                  <li>Declare <code className="text-emerald-400">EMAIL_USER</code> and <code className="text-emerald-400">EMAIL_PASS</code> in the <strong className="text-white">Secrets / Variables</strong> section.</li>
-                  <li>AI Studio will secure and persist them across every single build!</li>
-                </ol>
-              </div>
-            </div>
-          )}
-
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {/* Sender Name */}
             <div>

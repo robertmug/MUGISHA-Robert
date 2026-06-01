@@ -17,19 +17,45 @@ async function startServer() {
 
   // Load email-config.json fallback for production hosting
   try {
-    const fallbackPath = path.join(process.cwd(), "email-config.json");
-    if (fs.existsSync(fallbackPath)) {
+    const cleanVal = (val: string | undefined): string => {
+      if (!val) return "";
+      return val.replace(/^["']|["']$/g, "").trim();
+    };
+
+    const pathsToTry = [
+      path.join(process.cwd(), "email-config.json"),
+      path.join(__dirname, "email-config.json"),
+      path.join(__dirname, "../email-config.json")
+    ];
+
+    let fallbackPath = "";
+    for (const p of pathsToTry) {
+      if (fs.existsSync(p)) {
+        fallbackPath = p;
+        break;
+      }
+    }
+
+    if (fallbackPath) {
       const fallbackData = JSON.parse(fs.readFileSync(fallbackPath, "utf-8"));
-      if (!process.env.EMAIL_USER && fallbackData.EMAIL_USER) {
-        process.env.EMAIL_USER = fallbackData.EMAIL_USER;
+      
+      const customUser = cleanVal(fallbackData.EMAIL_USER);
+      const customPass = cleanVal(fallbackData.EMAIL_PASS);
+      const customReceiver = cleanVal(fallbackData.RECEIVER_EMAIL);
+
+      // Overwrite if empty or not defined
+      if (!cleanVal(process.env.EMAIL_USER) && customUser) {
+        process.env.EMAIL_USER = customUser;
       }
-      if (!process.env.EMAIL_PASS && fallbackData.EMAIL_PASS) {
-        process.env.EMAIL_PASS = fallbackData.EMAIL_PASS;
+      if (!cleanVal(process.env.EMAIL_PASS) && customPass) {
+        process.env.EMAIL_PASS = customPass;
       }
-      if (!process.env.RECEIVER_EMAIL && fallbackData.RECEIVER_EMAIL) {
-        process.env.RECEIVER_EMAIL = fallbackData.RECEIVER_EMAIL;
+      if (!cleanVal(process.env.RECEIVER_EMAIL) && customReceiver) {
+        process.env.RECEIVER_EMAIL = customReceiver;
       }
-      console.log("🔒 Loaded email-config.json fallback into process.env");
+      console.log(`🔒 Loaded email-config.json fallback from ${fallbackPath} into process.env`);
+    } else {
+      console.log("ℹ️ No email-config.json file discovered at expected root pathways.");
     }
   } catch (error) {
     console.error("⚠️ Failed to load email-config.json fallback:", error);
