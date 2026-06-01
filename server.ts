@@ -468,6 +468,8 @@ This email was sent securely via your full-stack portfolio gateway server.`,
   } else {
     const distPath = path.join(process.cwd(), 'dist');
     app.use(express.static(distPath));
+    // Support direct static serving of image assets under /src/assets for hosting compatibility
+    app.use('/src/assets', express.static(path.join(process.cwd(), 'src/assets')));
     app.get('*', (req, res) => {
       res.sendFile(path.join(distPath, 'index.html'));
     });
