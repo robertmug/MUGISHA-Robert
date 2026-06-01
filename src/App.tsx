@@ -71,10 +71,13 @@ export default function App() {
           
           {/* Insignia / Logo */}
           <a href="#" className="flex items-center gap-2.5 group">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-400 via-cyan-400 to-indigo-500 p-0.5 shadow-lg shadow-indigo-500/10">
-              <div className="w-full h-full rounded-[10px] bg-slate-950 flex items-center justify-center font-display font-black text-sm text-white tracking-wider group-hover:scale-105 transition-transform">
-                MR
-              </div>
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-400 via-cyan-400 to-indigo-500 p-0.5 shadow-lg shadow-indigo-500/10 overflow-hidden">
+              <img 
+                src="/src/assets/images/favicon_1780299437513.png" 
+                alt="Mugisha Robert Logo" 
+                className="w-full h-full rounded-[10px] object-cover group-hover:scale-110 transition-transform"
+                referrerPolicy="no-referrer"
+              />
             </div>
             <div>
               <span className="font-display font-black text-sm tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-cyan-400 to-indigo-500 block">MUGISHA ROBERT</span>
@@ -179,9 +182,12 @@ export default function App() {
 
                   <div className="space-y-4 my-6">
                     <div className="flex items-center gap-3">
-                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-400 via-cyan-400 to-indigo-500 flex items-center justify-center font-display font-black text-slate-950 text-base shadow-inner">
-                        MR
-                      </div>
+                      <img 
+                        src="/src/assets/images/favicon_1780299437513.png" 
+                        alt="Mugisha Robert Avatar" 
+                        className="w-12 h-12 rounded-xl object-cover border border-slate-800 shadow-md"
+                        referrerPolicy="no-referrer"
+                      />
                       <div>
                         <h4 className="font-display font-black tracking-tight text-white text-base">Mugisha Robert</h4>
                         <p className="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-wider">Level 5 Software Cert</p>
